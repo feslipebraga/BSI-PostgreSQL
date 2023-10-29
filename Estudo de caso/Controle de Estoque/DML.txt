@@ -1,0 +1,78 @@
+-- Inserção na tabela 'usuarios'
+INSERT INTO usuarios (nome, email, senha, tipoDeUsuario, logradouro, numero, complemento, cep, cidade, uf) VALUES
+    ('João Silva', 'joao@email.com', '123456', 0, 'Rua das Flores', 123, 'Apto 101', '12345678', 'São Paulo', 'SP'),
+    ('Maria Oliveira', 'maria@email.com', '654321', 1, 'Avenida Central', 456, '', '98765432', 'Rio de Janeiro', 'RJ'),
+    ('Pedro Santos', 'pedro@email.com', 'abcdef', 0, 'Rua das Palmeiras', 789, 'Casa 1', '54321876', 'Belo Horizonte', 'MG'),
+    ('Ana Pereira', 'ana@email.com', 'xyz123', 0, 'Rua das Estrelas', 987, '', '87654321', 'Curitiba', 'PR'),
+    ('Carlos Fernandes', 'carlos@email.com', '789abc', 2, 'Avenida dos Bandeirantes', 654, 'Sala 2', '23456789', 'Porto Alegre', 'RS');
+
+-- Inserção na tabela 'fornecedores'
+INSERT INTO fornecedores (nome, email, logradouro, numero, complemento, cep, cidade, uf) VALUES
+    ('Fornecedor ABC Ltda', 'fornecedorabc@email.com', 'Rua Comercial', '111', 'Loja 1', '11111111', 'São Paulo', 'SP'),
+    ('Fornecedor XYZ S.A.', 'fornecedorxyz@email.com', 'Avenida Industrial', '222', '', '22222222', 'Rio de Janeiro', 'RJ'),
+    ('Fornecedor Distribuição Total', 'fornecedordist@email.com', 'Rua das Mercadorias', '333', '', '33333333', 'Belo Horizonte', 'MG'),
+    ('Fornecedor Suprimentos & Co.', 'fornecedorsuprimentos@email.com', 'Avenida dos Suprimentos', '444', 'Sala 3', '44444444', 'Curitiba', 'PR'),
+    ('Fornecedor Produtos Vários', 'fornecedorprodutos@email.com', 'Rua da Produção', '555', 'Apto 202', '55555555', 'Porto Alegre', 'RS');
+
+-- Inserção na tabela 'clientes'
+INSERT INTO clientes (nome, email, logradouro, numero, complemento, cep, cidade, uf) VALUES
+    ('Ana Silva', 'ana.silva@email.com', 'Rua das Flores', '123', 'Apto 101', '12345678', 'São Paulo', 'SP'),
+    ('Carlos Oliveira', 'carlos.oliveira@email.com', 'Avenida Central', '456', 'Casa 2', '98765432', 'Rio de Janeiro', 'RJ'),
+    ('Fernanda Santos', 'fernanda.santos@email.com', 'Rua das Palmeiras', '789', '', '54321876', 'Belo Horizonte', 'MG'),
+    ('Gustavo Pereira', 'gustavo.pereira@email.com', 'Rua das Estrelas', '987', '', '87654321', 'Curitiba', 'PR'),
+    ('Isabela Fernandes', 'isabela.fernandes@email.com', 'Avenida dos Bandeirantes', '654', 'Sala 2', '23456789', 'Porto Alegre', 'RS');
+
+-- Inserção na tabela 'categorias'
+INSERT INTO categorias (descricao) VALUES
+    ('Eletrônicos'),
+    ('Roupas'),
+    ('Alimentos'),
+    ('Móveis'),
+    ('Acessórios');
+
+-- Inserção na tabela 'produtos'
+INSERT INTO produtos (Descricao, PrecoCusto, precoVenda, quantidadeEstoque, IDCategoria) VALUES
+    ('Smartphone', 500, 800, 50, 1),
+    ('Camiseta', 20, 40, 100, 2),
+    ('Arroz', 5, 10, 200, 3),
+    ('Sofá', 300, 500, 10, 4),
+    ('Relógio', 100, 200, 30, 5);
+
+-- Inserção na tabela 'entradas'
+INSERT INTO entradas (data, valorTotal, IDFornecedor) VALUES
+    ('2023-08-01', 1500, 1),
+    ('2023-08-02', 800, 2),
+    ('2023-08-03', 300, 3),
+    ('2023-08-04', 2000, 4),
+    ('2023-08-05', 400, 5);
+
+-- Inserção na tabela 'saidas'
+INSERT INTO saidas (data, valorTotal, IDCliente, IDUsuario) VALUES
+    ('2023-08-01', 200, 1, 1),
+    ('2023-08-02', 100, 2, 2),
+    ('2023-08-03', 50, 3, 3),
+    ('2023-08-04', 300, 4, 4),
+    ('2023-08-05', 80, 5, 5);
+
+-- Inserção na tabela 'itens_saida'
+INSERT INTO itens_saida (quantidade, valorUnitario, numeroNFSaida, IDProduto) VALUES
+    (2, 100, 1, 1),
+    (3, 15, 2, 2),
+    (1, 5, 3, 3),
+    (2, 150, 4, 4),
+    (1, 70, 5, 5);
+
+-- Inserção na tabela 'itens_entrada'
+INSERT INTO itens_entrada (quantidade, valorUnitario, IDProduto, numeroNFEntrada) VALUES
+    (10, 10, 1, 1),
+    (20, 5, 2, 2),
+    (5, 2, 3, 3),
+    (2, 100, 4, 4),
+    (3, 50, 5, 5);
+
+
+-- Inserção de mais 3 registros de saídas para o IDCliente 1
+INSERT INTO saidas (data, valorTotal, IDCliente, IDUsuario) VALUES
+    ('2023-02-15', 150, 1, 1),
+    ('2023-03-10', 300, 1, 1),
+    ('2023-04-20', 200, 1, 1);
