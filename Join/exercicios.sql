@@ -31,12 +31,20 @@ JOIN funcionarios f ON f.cpf = ate.cpffuncionario
 WHERE f.especialidade = 'Ortopedista';
 
 -- 6) Retornar pares (código, nome) de funcionários e de médicos que residem na mesma cidade (tabela resultado deve ter 4 atributos)
-SELECT f0.cpf, f0.nome, f1.cpf, f1.nome
-FROM funcionarios f0
-JOIN funcionarios f1 ON f0.cidade = f1.cidade
-WHERE f0.tipoFuncionario = 0 and f1.tipoFuncionario = 1;
+SELECT f1.cpf, f1.nome, f1.cidade, f2.cpf, f2.nome, f2.cidade
+FROM funcionarios f1
+JOIN funcionarios f2 ON f2.cidade = f1.cidade
+WHERE f1.tipoFuncionario = 0, f2.tipoFuncionario = 1;
 
 -- 7) Buscar o código e nome dos médicos que possuem consultas marcadas para antes das 12 horas e possuem idade inferior à idade da médica Maria
-
+SELECT DISTINCT f.cpf, f.nome
+FROM funcionarios f
+JOIN consulta c ON c.cpffuncionario = f.cpf
+JOIN funcionarios f2 ON f2.nome = 'Maria'
+WHERE c.hora < '12:00:00' and f.idade < f2.idade;
 
 -- 8) Buscar o nome e o salário dos funcionários que moram na mesma cidade do funcionário Carlos e possuem salário superior ao dele
+SELECT f.nome, f.cidade, f.salario
+FROM funcionarios f
+JOIN funcionarios f2 ON f2.nome = 'Carlos'
+WHERE f.cidade = f2.cidade AND f.salario > f2.salario;
